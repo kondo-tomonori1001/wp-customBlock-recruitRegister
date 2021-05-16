@@ -1,0 +1,26 @@
+{
+	"apiVersion": 2,
+	"name": "create-block/recruit-register",
+	"title": "カスタムブロックテスト",
+	"category": "widgets",
+	"icon": "smiley",
+	"description": "カスタムブロックのテストですよ〜〜",
+	"supports": {
+		"html": false
+	},
+	"textdomain": "recruit-register",
+	"editorScript": "file:./build/index.js",
+	"editorStyle": "file:./build/index.css",
+	"style": "file:./build/style-index.css",
+	"attributes": {
+		"name": {
+			"type": "string"
+		},
+		"address": {
+			"type": "string"
+		},
+		"salary": {
+			"type": "string"
+		}
+}
+}

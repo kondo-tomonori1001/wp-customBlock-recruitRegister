@@ -1,0 +1,29 @@
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+
+ .editor-post-title__input{
+	 font-size: 30px;
+	 height: 50px;
+ }
+
+.wp-block-create-block-recruit-register {
+	padding: 2px;
+}
+
+.wp-block-create-block-recruit-register h2{
+	font-size: 30px;
+}
+
+.wp-block-create-block-recruit-register th{
+	width: 30%;
+	text-align: right;
+}
+
+.wp-block-create-block-recruit-register td{
+	width: 70%;
+	text-align: center;
+}
