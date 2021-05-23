@@ -330,7 +330,49 @@ function save(_ref) {
   var name = attributes.name,
       address = attributes.address,
       salary = attributes.salary;
-  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__["useBlockProps"].save(), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("script", null, "const el = document.createElement('script'); const head = document.querySelector('head'); el.setAttribute('type','application/ld+json'); head.appendChild(el);"), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("table", null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("tr", null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("th", null, "\u8077\u7A2E"), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("td", null, name)), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("tr", null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("th", null, "\u52E4\u52D9\u5730"), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("td", null, address)), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("tr", null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("th", null, "\u7D66\u4E0E"), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("td", null, salary))));
+  var jsonLd = {
+    "@context": "https://schema.org/",
+    "@type": "JobPosting",
+    "title": name,
+    "description": "<p>Google aspires to be an organization that reflects the globally diverse audience that our products and technology serve. We believe that in addition to hiring the best talent, a diversity of perspectives, ideas and cultures leads to the creation of better products and services.</p>",
+    "identifier": {
+      "@type": "PropertyValue",
+      "name": "Google",
+      "value": "1234567"
+    },
+    "datePosted": "2017-01-18",
+    "validThrough": "2017-03-18T00:00",
+    "employmentType": "CONTRACTOR",
+    "hiringOrganization": {
+      "@type": "Organization",
+      "name": "Google",
+      "sameAs": "http://www.google.com",
+      "logo": "http://www.example.com/images/logo.png"
+    },
+    "jobLocation": {
+      "@type": "Place",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "1600 Amphitheatre Pkwy",
+        "addressLocality": "Mountain View",
+        "addressRegion": "CA",
+        "postalCode": "94043",
+        "addressCountry": "US"
+      }
+    },
+    "baseSalary": {
+      "@type": "MonetaryAmount",
+      "currency": "USD",
+      "value": {
+        "@type": "QuantitativeValue",
+        "value": 40.00,
+        "unitText": "HOUR"
+      }
+    }
+  };
+  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__["useBlockProps"].save(), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("script", {
+    type: "application/ld+json"
+  }, JSON.stringify(jsonLd, null, "\t")), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("table", null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("tr", null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("th", null, "\u8077\u7A2E"), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("td", null, name)), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("tr", null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("th", null, "\u52E4\u52D9\u5730"), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("td", null, address)), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("tr", null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("th", null, "\u7D66\u4E0E"), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("td", null, salary))));
 }
 
 /***/ }),
