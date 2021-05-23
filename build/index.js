@@ -204,7 +204,8 @@ function RecruitEdit(_ref) {
   // const [ value, setValue ] = useState( '' );
   var name = attributes.name,
       address = attributes.address,
-      salary = attributes.salary;
+      salary = attributes.salary,
+      description = attributes.description;
   var blockProps = Object(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__["useBlockProps"])();
   return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__["InspectorControls"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__["PanelBody"], {
     title: "\u30C6\u30B9\u30C8\u30B3\u30F3\u30C6\u30F3\u30C4"
@@ -214,6 +215,14 @@ function RecruitEdit(_ref) {
     onChange: function onChange(text) {
       return setAttributes({
         name: text
+      });
+    }
+  }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__["TextareaControl"], {
+    label: "\u8AAC\u660E\u6587",
+    value: attributes.description,
+    onChange: function onChange(text) {
+      return setAttributes({
+        description: text
       });
     }
   }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__["TextControl"], {
@@ -232,7 +241,7 @@ function RecruitEdit(_ref) {
         salary: text
       });
     }
-  }))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", blockProps, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("table", null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("tr", null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("th", null, "\u8077\u7A2E"), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("td", null, name)), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("tr", null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("th", null, "\u52E4\u52D9\u5730"), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("td", null, address)), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("tr", null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("th", null, "\u7D66\u4E0E"), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("td", null, salary)))));
+  }))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", blockProps, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("table", null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("tr", null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("th", null, "\u8077\u7A2E"), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("td", null, name)), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("tr", null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("th", null, "\u8AAC\u660E\u6587"), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("td", null, "".concat(description))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("tr", null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("th", null, "\u52E4\u52D9\u5730"), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("td", null, address)), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("tr", null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("th", null, "\u7D66\u4E0E"), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("td", null, salary)))));
 }
 
 /***/ }),
@@ -329,7 +338,8 @@ function save(_ref) {
   var attributes = _ref.attributes;
   var name = attributes.name,
       address = attributes.address,
-      salary = attributes.salary;
+      salary = attributes.salary,
+      description = attributes.description;
   var jsonLd = {
     "@context": "https://schema.org/",
     "@type": "JobPosting",
@@ -372,7 +382,7 @@ function save(_ref) {
   };
   return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__["useBlockProps"].save(), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("script", {
     type: "application/ld+json"
-  }, JSON.stringify(jsonLd, null, "\t")), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("table", null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("tr", null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("th", null, "\u8077\u7A2E"), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("td", null, name)), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("tr", null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("th", null, "\u52E4\u52D9\u5730"), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("td", null, address)), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("tr", null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("th", null, "\u7D66\u4E0E"), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("td", null, salary))));
+  }, JSON.stringify(jsonLd)), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("table", null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("tr", null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("th", null, "\u8077\u7A2E"), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("td", null, name)), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("tr", null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("th", null, "\u8AAC\u660E\u6587"), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("td", null, description)), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("tr", null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("th", null, "\u52E4\u52D9\u5730"), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("td", null, address)), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("tr", null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("th", null, "\u7D66\u4E0E"), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("td", null, salary))));
 }
 
 /***/ }),

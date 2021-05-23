@@ -1,5 +1,5 @@
 import { __ } from "@wordpress/i18n";
-import { PanelBody, TextControl } from "@wordpress/components";
+import { PanelBody, TextControl, TextareaControl } from "@wordpress/components";
 // import { useState } from '@wordpress/compose';
 import {
 	InspectorControls,
@@ -11,7 +11,7 @@ import "./editor.scss";
 
 export default function RecruitEdit({ attributes, setAttributes }) {
 	// const [ value, setValue ] = useState( '' );
-	const { name, address, salary } = attributes;
+	const { name, address, salary, description } = attributes;
 	const blockProps = useBlockProps();
 	return (
 		<>
@@ -21,6 +21,11 @@ export default function RecruitEdit({ attributes, setAttributes }) {
 						label="職種"
 						value={attributes.name}
 						onChange={(text) => setAttributes({ name: text })}
+					/>
+					<TextareaControl
+						label="説明文"
+						value={attributes.description}
+						onChange={(text) => setAttributes({ description: text })}
 					/>
 					<TextControl
 						label="勤務地"
@@ -32,6 +37,7 @@ export default function RecruitEdit({ attributes, setAttributes }) {
 						value={attributes.salary}
 						onChange={(text) => setAttributes({ salary: text })}
 					/>
+					
 				</PanelBody>
 			</InspectorControls>
 			<div {...blockProps}>
@@ -39,6 +45,10 @@ export default function RecruitEdit({ attributes, setAttributes }) {
 					<tr>
 						<th>職種</th>
 						<td>{name}</td>
+					</tr>
+					<tr>
+						<th>説明文</th>
+						<td>{`${description}`}</td>
 					</tr>
 					<tr>
 						<th>勤務地</th>

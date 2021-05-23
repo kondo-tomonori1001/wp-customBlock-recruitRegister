@@ -2,7 +2,7 @@ import { __ } from '@wordpress/i18n';
 import { useBlockProps } from '@wordpress/block-editor';
 
 export default function save({ attributes }) {
-	const { name, address, salary } = attributes;
+	const { name, address, salary, description } = attributes;
 	const jsonLd = {
 		"@context" : "https://schema.org/",
 		"@type" : "JobPosting",
@@ -46,12 +46,16 @@ export default function save({ attributes }) {
 	return (
 		<div { ...useBlockProps.save() }>
 			<script type="application/ld+json">
-				{ JSON.stringify(jsonLd, null, "\t") }
+				{ JSON.stringify(jsonLd) }
     	</script>
 			<table>
 					<tr>
 						<th>職種</th>
 						<td>{name}</td>
+					</tr>
+					<tr>
+						<th>説明文</th>
+						<td>{description}</td>
 					</tr>
 					<tr>
 						<th>勤務地</th>
