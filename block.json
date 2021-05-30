@@ -1,10 +1,10 @@
 {
 	"apiVersion": 2,
 	"name": "create-block/recruit-register",
-	"title": "カスタムブロックテスト",
+	"title": "求人情報（googleしごと検索対応）",
 	"category": "widgets",
-	"icon": "smiley",
-	"description": "カスタムブロックのテストですよ〜〜",
+	"icon": "groups",
+	"description": "Googleしごと検索対応に対応した求人情報を入力できます",
 	"supports": {
 		"html": false
 	},
@@ -19,10 +19,34 @@
 		"description": {
 			"type": "string"
 		},
-		"address": {
+		"date": {
+			"type": "date"
+		},
+		"salaryType": {
 			"type": "string"
 		},
-		"salary": {
+		"salaryMax": {
+			"type": "string"
+		},
+		"salaryMin": {
+			"type": "string"
+		},
+		"employmentType": {
+			"type": "string"
+		},
+		"company": {
+			"type": "string"
+		},
+		"companySite": {
+			"type": "string"
+		},
+		"companyLogo": {
+			"type": "string"
+		},
+		"pref": {
+			"type": "string"
+		},
+		"city": {
 			"type": "string"
 		}
 }

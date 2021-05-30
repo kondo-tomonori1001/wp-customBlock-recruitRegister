@@ -25,6 +25,7 @@
 .wp-block-create-block-recruit-register td {
   width: 70%;
   text-align: center;
+  white-space: pre-wrap;
 }
 
 /*# sourceMappingURL=style-index.css.map*/

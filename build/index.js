@@ -203,14 +203,49 @@ function RecruitEdit(_ref) {
       setAttributes = _ref.setAttributes;
   // const [ value, setValue ] = useState( '' );
   var name = attributes.name,
-      address = attributes.address,
-      salary = attributes.salary,
-      description = attributes.description;
-  var blockProps = Object(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__["useBlockProps"])();
+      description = attributes.description,
+      date = attributes.date,
+      pref = attributes.pref,
+      city = attributes.city,
+      company = attributes.company,
+      companySite = attributes.companySite,
+      companyLogo = attributes.companyLogo,
+      salaryType = attributes.salaryType,
+      salaryMin = attributes.salaryMin,
+      salaryMax = attributes.salaryMax,
+      employmentType = attributes.employmentType;
+  var blockProps = Object(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__["useBlockProps"])(); // console.log(description.replace(/\r?\n/g, '<br>'));
+
+  var displayDate = "".concat(new Date(date).getFullYear(), "\u5E74").concat(new Date(date).getMonth() + 1, "\u6708").concat(new Date(date).getDate(), "\u65E5");
+  var salaryTypeDisplay;
+
+  if (salaryType === "HOUR") {
+    salaryTypeDisplay = "時給";
+  } else if (salaryType === "DAY") {
+    salaryTypeDisplay = "日給";
+  } else if (salaryType === "WEEK") {
+    salaryTypeDisplay = "週給";
+  } else if (salaryType === "MONTH") {
+    salaryTypeDisplay = "月収";
+  } else if (salaryType === "YEAR") {
+    salaryTypeDisplay = "年収";
+  }
+
+  var employmentTypeDisplay;
+
+  if (employmentType === "FULL_TIME") {
+    employmentTypeDisplay = "フルタイム";
+  } else if (employmentType === "PART_TIME") {
+    employmentTypeDisplay = "パートタイム";
+  } else if (employmentType === "OTHER") {
+    employmentTypeDisplay = "その他";
+  }
+
+  console.log(displayDate);
   return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__["InspectorControls"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__["PanelBody"], {
-    title: "\u30C6\u30B9\u30C8\u30B3\u30F3\u30C6\u30F3\u30C4"
+    title: "\u6982\u8981"
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__["TextControl"], {
-    label: "\u8077\u7A2E",
+    label: "\u30BF\u30A4\u30C8\u30EB",
     value: attributes.name,
     onChange: function onChange(text) {
       return setAttributes({
@@ -218,30 +253,132 @@ function RecruitEdit(_ref) {
       });
     }
   }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__["TextareaControl"], {
-    label: "\u8AAC\u660E\u6587",
+    label: "\u52DF\u96C6\u5185\u5BB9",
     value: attributes.description,
     onChange: function onChange(text) {
       return setAttributes({
         description: text
       });
     }
-  }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__["TextControl"], {
-    label: "\u52E4\u52D9\u5730",
-    value: attributes.address,
+  })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__["PanelBody"], {
+    title: "\u4F1A\u793E\u6982\u8981"
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__["TextControl"], {
+    label: "\u4F1A\u793E\u540D",
+    value: attributes.company,
     onChange: function onChange(text) {
       return setAttributes({
-        address: text
+        company: text
       });
     }
   }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__["TextControl"], {
-    label: "\u7D66\u4E0E",
-    value: attributes.salary,
+    label: "\u4F1A\u793E\u516C\u5F0F\u30B5\u30A4\u30C8URL\uFF08\u4EFB\u610F\uFF09",
+    value: attributes.companySite,
     onChange: function onChange(text) {
       return setAttributes({
-        salary: text
+        companySite: text
       });
     }
-  }))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", blockProps, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("table", null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("tr", null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("th", null, "\u8077\u7A2E"), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("td", null, name)), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("tr", null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("th", null, "\u8AAC\u660E\u6587"), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("td", null, "".concat(description))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("tr", null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("th", null, "\u52E4\u52D9\u5730"), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("td", null, address)), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("tr", null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("th", null, "\u7D66\u4E0E"), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("td", null, salary)))));
+  }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__["TextControl"], {
+    label: "\u4F1A\u793E\u30ED\u30B4URL\uFF08\u4EFB\u610F\uFF09",
+    value: attributes.companyLogo,
+    onChange: function onChange(text) {
+      return setAttributes({
+        companyLogo: text
+      });
+    }
+  }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__["TextControl"], {
+    label: "\u90FD\u9053\u5E9C\u770C",
+    value: attributes.pref,
+    onChange: function onChange(text) {
+      return setAttributes({
+        pref: text
+      });
+    }
+  }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__["TextControl"], {
+    label: "\u5E02\u753A\u6751",
+    value: attributes.city,
+    onChange: function onChange(text) {
+      return setAttributes({
+        city: text
+      });
+    }
+  })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__["PanelBody"], {
+    title: "\u5F85\u9047\uFF08\u7D66\u4E0E\uFF09"
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__["SelectControl"], {
+    label: "\u7D66\u4E0E\u5F62\u614B",
+    value: attributes.salaryType,
+    onChange: function onChange(text) {
+      return setAttributes({
+        salaryType: text
+      });
+    },
+    options: [{
+      value: null,
+      label: '給与形態を選択'
+    }, {
+      value: "HOUR",
+      label: '時給'
+    }, {
+      value: "DAY",
+      label: '日給'
+    }, {
+      value: "WEEK",
+      label: '週給'
+    }, {
+      value: "MONTH",
+      label: '月給'
+    }, {
+      value: "YEAR",
+      label: '年収'
+    }]
+  }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__["TextControl"], {
+    label: "\u6700\u5C11\u984D",
+    value: attributes.salaryMin,
+    onChange: function onChange(text) {
+      return setAttributes({
+        salaryMin: text
+      });
+    }
+  }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__["TextControl"], {
+    label: "\u6700\u5927\u984D",
+    value: attributes.salaryMax,
+    onChange: function onChange(text) {
+      return setAttributes({
+        salaryMax: text
+      });
+    }
+  })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__["PanelBody"], {
+    title: "\u96C7\u7528\u5F62\u614B"
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__["SelectControl"], {
+    value: attributes.employmentType,
+    onChange: function onChange(text) {
+      return setAttributes({
+        employmentType: text
+      });
+    },
+    options: [{
+      value: null,
+      label: '雇用形態を選択'
+    }, {
+      value: "FULL_TIME",
+      label: 'フルタイム'
+    }, {
+      value: "PART_TIME",
+      label: 'パートタイム'
+    }, {
+      value: "OTHER",
+      label: 'その他'
+    }]
+  })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__["PanelBody"], {
+    title: "\u52DF\u96C6\u671F\u9650"
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__["DateTimePicker"], {
+    currentDate: attributes.date,
+    onChange: function onChange(text) {
+      return setAttributes({
+        date: text
+      });
+    }
+  }))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", blockProps, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("table", null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("tr", null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("th", null, "\u30BF\u30A4\u30C8\u30EB"), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("td", null, name)), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("tr", null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("th", null, "\u52DF\u96C6\u5185\u5BB9"), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("td", null, "".concat(description))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("tr", null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("th", null, "\u52DF\u96C6\u671F\u9650"), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("td", null, displayDate)), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("tr", null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("th", null, "\u4F1A\u793E\u540D"), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("td", null, company)), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("tr", null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("th", null, "\u4F1A\u793E\u6240\u5728\u5730"), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("td", null, pref, city)), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("tr", null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("th", null, "\u5F85\u9047"), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("td", null, salaryTypeDisplay, " : ", salaryMin, " ~ ", salaryMax)), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("tr", null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("th", null, "\u96C7\u7528\u5F62\u614B"), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("td", null, employmentTypeDisplay)))));
 }
 
 /***/ }),
@@ -337,52 +474,80 @@ __webpack_require__.r(__webpack_exports__);
 function save(_ref) {
   var attributes = _ref.attributes;
   var name = attributes.name,
-      address = attributes.address,
-      salary = attributes.salary,
-      description = attributes.description;
+      description = attributes.description,
+      date = attributes.date,
+      pref = attributes.pref,
+      city = attributes.city,
+      company = attributes.company,
+      companySite = attributes.companySite,
+      companyLogo = attributes.companyLogo,
+      salaryType = attributes.salaryType,
+      salaryMin = attributes.salaryMin,
+      salaryMax = attributes.salaryMax,
+      employmentType = attributes.employmentType;
+  var postDate = "".concat(new Date().getFullYear(), "-").concat(("0" + (new Date().getMonth() + 1)).slice(-2), "-").concat(("0" + new Date().getDate()).slice(-2));
+  var displayDate = "".concat(new Date(date).getFullYear(), "\u5E74").concat(new Date(date).getMonth() + 1, "\u6708").concat(new Date(date).getDate(), "\u65E5");
   var jsonLd = {
     "@context": "https://schema.org/",
     "@type": "JobPosting",
     "title": name,
-    "description": "<p>Google aspires to be an organization that reflects the globally diverse audience that our products and technology serve. We believe that in addition to hiring the best talent, a diversity of perspectives, ideas and cultures leads to the creation of better products and services.</p>",
-    "identifier": {
-      "@type": "PropertyValue",
-      "name": "Google",
-      "value": "1234567"
-    },
-    "datePosted": "2017-01-18",
-    "validThrough": "2017-03-18T00:00",
-    "employmentType": "CONTRACTOR",
+    "description": "<p>" + description + "</p>",
+    "datePosted": postDate,
+    "validThrough": date,
+    "employmentType": employmentType,
     "hiringOrganization": {
       "@type": "Organization",
-      "name": "Google",
-      "sameAs": "http://www.google.com",
-      "logo": "http://www.example.com/images/logo.png"
+      "name": company,
+      "sameAs": companySite,
+      "logo": companyLogo
     },
     "jobLocation": {
       "@type": "Place",
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "1600 Amphitheatre Pkwy",
-        "addressLocality": "Mountain View",
-        "addressRegion": "CA",
-        "postalCode": "94043",
-        "addressCountry": "US"
+        "addressLocality": pref,
+        "addressRegion": city,
+        "addressCountry": "JP"
       }
     },
     "baseSalary": {
       "@type": "MonetaryAmount",
-      "currency": "USD",
+      "currency": "JPY",
       "value": {
         "@type": "QuantitativeValue",
-        "value": 40.00,
-        "unitText": "HOUR"
+        "minValue": salaryMin,
+        "maxValue": salaryMax,
+        "unitText": salaryType
       }
     }
   };
+  var salaryTypeDisplay;
+
+  if (salaryType === "HOUR") {
+    salaryTypeDisplay = "時給";
+  } else if (salaryType === "DAY") {
+    salaryTypeDisplay = "日給";
+  } else if (salaryType === "WEEK") {
+    salaryTypeDisplay = "週給";
+  } else if (salaryType === "MONTH") {
+    salaryTypeDisplay = "月収";
+  } else if (salaryType === "YEAR") {
+    salaryTypeDisplay = "年収";
+  }
+
+  var employmentTypeDisplay;
+
+  if (employmentType === "FULL_TIME") {
+    employmentTypeDisplay = "フルタイム";
+  } else if (employmentType === "PART_TIME") {
+    employmentTypeDisplay = "パートタイム";
+  } else if (employmentType === "OTHER") {
+    employmentTypeDisplay = "その他";
+  }
+
   return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__["useBlockProps"].save(), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("script", {
     type: "application/ld+json"
-  }, JSON.stringify(jsonLd)), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("table", null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("tr", null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("th", null, "\u8077\u7A2E"), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("td", null, name)), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("tr", null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("th", null, "\u8AAC\u660E\u6587"), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("td", null, description)), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("tr", null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("th", null, "\u52E4\u52D9\u5730"), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("td", null, address)), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("tr", null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("th", null, "\u7D66\u4E0E"), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("td", null, salary))));
+  }, JSON.stringify(jsonLd, null, "\t")), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("table", null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("tr", null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("th", null, "\u30BF\u30A4\u30C8\u30EB"), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("td", null, name)), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("tr", null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("th", null, "\u52DF\u96C6\u5185\u5BB9"), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("td", null, "".concat(description))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("tr", null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("th", null, "\u52DF\u96C6\u671F\u9650"), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("td", null, displayDate)), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("tr", null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("th", null, "\u4F1A\u793E\u540D"), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("td", null, company)), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("tr", null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("th", null, "\u4F1A\u793E\u6240\u5728\u5730"), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("td", null, pref, city)), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("tr", null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("th", null, "\u5F85\u9047"), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("td", null, salaryTypeDisplay, " : ", salaryMin, " ~ ", salaryMax)), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("tr", null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("th", null, "\u96C7\u7528\u5F62\u614B"), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("td", null, employmentTypeDisplay))));
 }
 
 /***/ }),
