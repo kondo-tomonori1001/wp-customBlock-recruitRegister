@@ -1,11 +1,11 @@
 <?php
 /**
  * Plugin Name:       Recruit Register
- * Description:       Example block written with ESNext standard and JSX support – build step required.
+ * Description:       Googleしごと検索対応の構造化データを出力できる求人情報入力カスタムブロック
  * Requires at least: 5.7
  * Requires PHP:      7.0
  * Version:           0.1.0
- * Author:            The WordPress Contributors
+ * Author:            KON
  * License:           GPL-2.0-or-later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain:       recruit-register
