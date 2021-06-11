@@ -50,7 +50,7 @@ export default function RecruitEdit({ attributes, setAttributes }) {
 			<InspectorControls>
 				<PanelBody title="概要">
 					<TextControl
-						label="タイトル"
+						label="職種"
 						value={attributes.name}
 						onChange={(text) => setAttributes({ name: text })}
 					/>
@@ -144,7 +144,7 @@ export default function RecruitEdit({ attributes, setAttributes }) {
 			<div {...blockProps}>
 				<table>
 					<tr>
-						<th>タイトル</th>
+						<th>職種</th>
 						<td>{name}</td>
 					</tr>
 					<tr>

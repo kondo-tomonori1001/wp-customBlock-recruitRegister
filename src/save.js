@@ -77,7 +77,7 @@ export default function save({ attributes }) {
     	</script>
 			<table>
 				<tr>
-					<th>タイトル</th>
+					<th>職種</th>
 					<td>{name}</td>
 				</tr>
 				<tr>
