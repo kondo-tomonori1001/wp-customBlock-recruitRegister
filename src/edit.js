@@ -11,7 +11,7 @@ import "./editor.scss";
 
 export default function RecruitEdit({ attributes, setAttributes }) {
 	// const [ value, setValue ] = useState( '' );
-	const { name, description, date, pref, city, company, companySite, companyLogo, salaryType, salaryMin, salaryMax, employmentType } = attributes;
+	const { name, description, date, pref, city, address, company, companySite, companyLogo, salaryType, salaryMin, salaryMax, employmentType } = attributes;
 	const blockProps = useBlockProps();
 	// console.log(description.replace(/\r?\n/g, '<br>'));
 	const displayDate = `${new Date(date).getFullYear()}年${new Date(date).getMonth() + 1}月${new Date(date).getDate()}日`;
@@ -34,11 +34,17 @@ export default function RecruitEdit({ attributes, setAttributes }) {
 		employmentTypeDisplay = "フルタイム"
 	} else if(employmentType === "PART_TIME") {
 		employmentTypeDisplay = "パートタイム"
+	} else if(employmentType === "CONTRACTOR"){
+		employmentTypeDisplay = "契約社員"
+	} else if(employmentType === "TEMPORARY"){
+		employmentTypeDisplay = "パートタイム（短期）"
+	} else if(employmentType === "PER_DIEM"){
+		employmentTypeDisplay = "アルバイト"
 	} else if(employmentType === "OTHER"){
 		employmentTypeDisplay = "その他"
 	}
 
-	console.log(displayDate);
+
 	return (
 		<>
 			<InspectorControls>
@@ -80,6 +86,11 @@ export default function RecruitEdit({ attributes, setAttributes }) {
 						value={attributes.city}
 						onChange={(text) => setAttributes({ city: text })}
 					/>
+					<TextControl
+						label="番地"
+						value={attributes.address}
+						onChange={(text) => setAttributes({ address: text })}
+					/>
 				</PanelBody>
 				<PanelBody title="待遇（給与）">
 					<SelectControl 
@@ -96,13 +107,15 @@ export default function RecruitEdit({ attributes, setAttributes }) {
 						]}
 					/>
 					<TextControl
-						label="最少額"
+						label="最少額（半角数字）"
 						value={attributes.salaryMin}
+						type="number"
 						onChange={(text) => setAttributes({ salaryMin: text })}
 					/>
 					<TextControl
-						label="最大額"
+						label="最大額（半角数字）"
 						value={attributes.salaryMax}
+						type="number"
 						onChange={(text) => setAttributes({ salaryMax: text })}
 					/>
 				</PanelBody>
@@ -114,6 +127,9 @@ export default function RecruitEdit({ attributes, setAttributes }) {
 							{ value: null, label: '雇用形態を選択',},
 							{ value: "FULL_TIME", label: 'フルタイム'},
 							{ value: "PART_TIME", label: 'パートタイム' },
+							{ value: "CONTRACTOR", label: '契約社員' },
+							{ value: "TEMPORARY", label: 'パートタイム（短期）' },
+							{ value: "PER_DIEM", label: 'アルバイト' },
 							{ value: "OTHER", label: 'その他' },
 						]}
 					/>
@@ -145,11 +161,11 @@ export default function RecruitEdit({ attributes, setAttributes }) {
 					</tr>
 					<tr>
 						<th>会社所在地</th>
-						<td>{pref}{city}</td>
+						<td>{pref}{city}{address}</td>
 					</tr>
 					<tr>
 						<th>待遇</th>
-						<td>{salaryTypeDisplay} : {salaryMin} ~ {salaryMax}</td>
+						<td>{salaryTypeDisplay} : {String(salaryMin).replace( /(\d)(?=(\d\d\d)+(?!\d))/g, '$1,')}円 ~ {String(salaryMax).replace( /(\d)(?=(\d\d\d)+(?!\d))/g, '$1,')}円</td>
 					</tr>
 					<tr>
 						<th>雇用形態</th>

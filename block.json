@@ -26,10 +26,12 @@
 			"type": "string"
 		},
 		"salaryMax": {
-			"type": "string"
+			"type": "number",
+			"default":0
 		},
 		"salaryMin": {
-			"type": "string"
+			"type": "number",
+			"default":0
 		},
 		"employmentType": {
 			"type": "string"
@@ -47,6 +49,9 @@
 			"type": "string"
 		},
 		"city": {
+			"type": "string"
+		},
+		"address": {
 			"type": "string"
 		}
 }

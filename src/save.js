@@ -2,7 +2,7 @@ import { __ } from '@wordpress/i18n';
 import { useBlockProps } from '@wordpress/block-editor';
 
 export default function save({ attributes }) {
-	const { name, description, date, pref, city, company, companySite, companyLogo, salaryType, salaryMin, salaryMax, employmentType } = attributes;
+	const { name, description, date, pref, city, address, company, companySite, companyLogo, salaryType, salaryMin, salaryMax, employmentType } = attributes;
 	const postDate = `${new Date().getFullYear()}-${("0" + (new Date().getMonth() + 1)).slice(-2)}-${("0" + new Date().getDate()).slice(-2)}`;
 	const displayDate = `${new Date(date).getFullYear()}年${new Date(date).getMonth() + 1}月${new Date(date).getDate()}日`;
 
@@ -24,6 +24,7 @@ export default function save({ attributes }) {
 		"@type": "Place",
 			"address": {
 			"@type": "PostalAddress",
+			"streetAddress": address,
 			"addressLocality": pref,
 			"addressRegion": city,
 			"addressCountry": "JP"
@@ -34,8 +35,8 @@ export default function save({ attributes }) {
 			"currency": "JPY",
 			"value": {
 				"@type": "QuantitativeValue",
-				"minValue": salaryMin,
-				"maxValue": salaryMax,
+				"minValue": Number(salaryMin),
+				"maxValue": Number(salaryMax),
 				"unitText": salaryType
 			}
 		}
@@ -59,6 +60,12 @@ export default function save({ attributes }) {
 		employmentTypeDisplay = "フルタイム"
 	} else if(employmentType === "PART_TIME") {
 		employmentTypeDisplay = "パートタイム"
+	} else if(employmentType === "CONTRACTOR"){
+		employmentTypeDisplay = "契約社員"
+	} else if(employmentType === "TEMPORARY"){
+		employmentTypeDisplay = "パートタイム（短期）"
+	} else if(employmentType === "PER_DIEM"){
+		employmentTypeDisplay = "アルバイト"
 	} else if(employmentType === "OTHER"){
 		employmentTypeDisplay = "その他"
 	}
@@ -87,11 +94,11 @@ export default function save({ attributes }) {
 				</tr>
 				<tr>
 					<th>会社所在地</th>
-					<td>{pref}{city}</td>
+					<td>{pref}{city}{address}</td>
 				</tr>
 				<tr>
 					<th>待遇</th>
-					<td>{salaryTypeDisplay} : {salaryMin} ~ {salaryMax}</td>
+					<td>{salaryTypeDisplay} : {String(salaryMin).replace( /(\d)(?=(\d\d\d)+(?!\d))/g, '$1,')}円 ~ {String(salaryMax).replace( /(\d)(?=(\d\d\d)+(?!\d))/g, '$1,')}円</td>
 				</tr>
 				<tr>
 					<th>雇用形態</th>
