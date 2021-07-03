@@ -165,7 +165,7 @@ export default function RecruitEdit({ attributes, setAttributes }) {
 					</tr>
 					<tr>
 						<th>待遇</th>
-						<td>{salaryTypeDisplay} : {String(salaryMin).replace( /(\d)(?=(\d\d\d)+(?!\d))/g, '$1,')}円 ~ {String(salaryMax).replace( /(\d)(?=(\d\d\d)+(?!\d))/g, '$1,')}円</td>
+						<td>{salaryTypeDisplay} : {salaryMin}円 ~ {salaryMax}円</td>
 					</tr>
 					<tr>
 						<th>雇用形態</th>

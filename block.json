@@ -26,12 +26,10 @@
 			"type": "string"
 		},
 		"salaryMax": {
-			"type": "number",
-			"default":0
+			"type": "string"
 		},
 		"salaryMin": {
-			"type": "number",
-			"default":0
+			"type": "string"
 		},
 		"employmentType": {
 			"type": "string"
